@@ -1,0 +1,11 @@
+# Core Data & ML
+pandas
+numpy
+scikit-learn
+xgboost
+joblib
+category-encoders
+# API & Server
+fastapi
+uvicorn[standard]
+python-multipart
