@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 2. Gửi yêu cầu đến API
         try {
-            const response = await fetch('http://0.0.0.0:8000/predict', {
+            const response = await fetch('/predict', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
