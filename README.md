@@ -142,5 +142,6 @@ with open("frontend/index.html", "r", encoding="utf-8") as f:
 │   └── styles.css          # CSS để tạo kiểu dáng
 ├── requirements.txt        # Các thư viện Python cần thiết
 ├── salary_prediction_pipeline.joblib # Mô hình ML đã được huấn luyện và lưu lại
-└── ...
+└── Data_Analyst.ipynb # Phân tích dữ liệu file csv
+└── Dashboard.pbix # Dashboard phân tích
 ```
