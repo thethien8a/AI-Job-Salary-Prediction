@@ -56,7 +56,7 @@ app.mount("/static", StaticFiles(directory="frontend"), name="static")
 # Endpoint để phục vụ file index.html
 @app.get("/", include_in_schema=False)
 async def serve_index():
-    with open("frontend/index.html", "r") as f:
+    with open("frontend/index.html", "r", encoding="utf-8") as f:
         html_content = f.read()
     return Response(content=html_content, media_type="text/html")
 
