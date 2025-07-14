@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.preprocessing import PolynomialFeatures
-import category_encoders as ce
+from sklearn.preprocessing import PolynomialFeatures, TargetEncoder
+import numpy as np
 
 def get_top_5_common_skills_by_job(skill_data):
     """Lấy top 5 skills phổ biến nhất cho từng job_title"""
@@ -42,7 +42,9 @@ class SkillFeatureTransformer(BaseEstimator, TransformerMixin):
         # Học các skill hàng đầu từ dữ liệu train (X) và target (y)
         skill_data = X.copy()
         if y is not None:
-             skill_data['salary_usd'] = y
+            # Chuyển đổi log values về original values
+            salary_original = np.expm1(y)  # Convert log(salary+1) back to salary
+            skill_data['salary_usd'] = salary_original
 
         temp_skill_data = skill_data.copy()
 
@@ -136,10 +138,15 @@ class PolynomialFeatureCreator(BaseEstimator, TransformerMixin):
 # --- Wrapper cho TargetEncoder để hoạt động trong Pipeline ---
 class TargetEncoderWrapper(BaseEstimator, TransformerMixin):
     def __init__(self):
-        self.encoder = ce.TargetEncoder(handle_unknown='value', handle_missing='value')
+        self.encoder = TargetEncoder(target_type='continuous', smooth='auto')
         
     def fit(self, X, y=None):
-        self.encoder.fit(X, y)
+        # Chuyển đổi log values về original values để encoder học đúng
+        if y is not None:
+            y_original = np.expm1(y)  # Convert log(salary+1) back to salary
+            self.encoder.fit(X, y_original)
+        else:
+            self.encoder.fit(X)
         return self
     
     def transform(self, X):
