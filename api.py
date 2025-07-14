@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Response
+from fastapi import FastAPI, Response, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -80,13 +80,24 @@ except FileNotFoundError:
     pipeline = None
 
 # 5. Tạo các endpoints
+@app.get("/health", tags=["Health"])
+def health_check():
+    """
+    Kiểm tra trạng thái server và pipeline.
+    """
+    return {
+        "status": "healthy",
+        "pipeline_loaded": pipeline is not None,
+        "message": "AI Job Salary Predictor API is running"
+    }
+
 @app.post("/predict", tags=["Prediction"])
 def predict(request: JobPredictionRequest):
     """
     Nhận dữ liệu công việc và trả về mức lương dự đoán.
     """
     if pipeline is None:
-        return {"error": "Model pipeline is not loaded. Please check the server logs."}, 500
+        raise HTTPException(status_code=500, detail="Model pipeline is not loaded. Please check the server logs.")
 
     try:
         # Chuyển dữ liệu từ request Pydantic thành một DataFrame có 1 hàng
@@ -101,4 +112,4 @@ def predict(request: JobPredictionRequest):
         return {"predicted_salary_usd": float(round(prediction, 2))}
 
     except Exception as e:
-        return {"error": f"An error occurred during prediction: {str(e)}"}, 400 
+        raise HTTPException(status_code=400, detail=f"An error occurred during prediction: {str(e)}") 

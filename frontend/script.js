@@ -36,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 2. Gửi yêu cầu đến API
         try {
+            console.log('Sending request with data:', formData);
+            
             const response = await fetch('/predict', {
                 method: 'POST',
                 headers: {
@@ -44,16 +46,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify(formData)
             });
 
+            console.log('Response status:', response.status, response.statusText);
+
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(errorData.detail || 'An error occurred');
+                console.error('Error response:', errorData);
+                throw new Error(errorData.detail || errorData.message || 'An error occurred');
             }
 
             const result = await response.json();
+            console.log('Success response:', result);
             
-            // 3. Hiển thị kết quả
-            resultText.textContent = `$${result.predicted_salary_usd.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
-            resultContainer.classList.remove('hidden');
+            // 3. Hiển thị kết quả - kiểm tra xem có dữ liệu hợp lệ không
+            if (result && result.predicted_salary_usd !== undefined) {
+                resultText.textContent = `$${result.predicted_salary_usd.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
+                resultContainer.classList.remove('hidden');
+            } else {
+                throw new Error('Invalid response format from server');
+            }
 
         } catch (error) {
             resultText.textContent = `Error: ${error.message}`;
