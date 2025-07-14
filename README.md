@@ -1,11 +1,10 @@
 # Dự Án Ứng Dụng Web Dự Đoán Lương ngành AI/Data
 
-
 Đây là một dự án ứng dụng web full-stack có khả năng dự đoán mức lương cho các công việc trong lĩnh vực Trí tuệ Nhân tạo (AI) và Khoa học Dữ liệu dựa trên các thuộc tính khác nhau của công việc. Dự án sử dụng một pipeline Machine Learning được xây dựng bằng Scikit-learn và được phục vụ thông qua một backend API bằng FastAPI.
 
 ## 🚀 Demo Trực Tuyến
 
-
+**Website đang hoạt động tại:** [https://machine-learning-project-qy7k.onrender.com/](https://machine-learning-project-qy7k.onrender.com/)
 
 ## 🌟 Tính Năng Nổi Bật
 
@@ -48,9 +47,9 @@ graph TD
 ## 🛠️ Công Nghệ Sử Dụng
 
 -   **Backend**: Python, FastAPI, Uvicorn
--   **Machine Learning**: Scikit-learn, XGBoost, Pandas, NumPy, Joblib, category-encoders
+-   **Machine Learning**: Scikit-learn, XGBoost, Pandas, NumPy, Joblib
 -   **Frontend**: HTML5, CSS3 (Flexbox, Grid, Animations), JavaScript (ES6+, Fetch API)
--   **Triển khai**: Docker
+-   **Triển khai**: Docker, Render.com
 
 ## 🚀 Bắt đầu
 
@@ -59,13 +58,14 @@ Làm theo các hướng dẫn sau để có một bản sao của dự án và c
 ### Yêu cầu Cần có
 
 -   Python 3.9 trở lên
--   Docker Desktop
+-   Docker Desktop (tùy chọn)
 
 ### Cài đặt & Thiết lập
 
 1.  **Clone repository về máy:**
     ```bash
     git clone https://github.com/thethien8a/AI-Job-Salary-Prediction
+    cd AI-Job-Salary-Prediction
     ```
 
 2.  **Cài đặt các thư viện Python:**
@@ -80,37 +80,52 @@ Làm theo các hướng dẫn sau để có một bản sao của dự án và c
     ```
     Lệnh này sẽ tạo ra tệp `salary_prediction_pipeline.joblib`.
 
-### Chạy Ứng Dụng
+### Chạy Ứng Dụng Trên Local
 
-Có hai cách để chạy ứng dụng:
+#### Phương pháp 1: Chạy trực tiếp với Python
 
-#### 1. Chế độ Phát triển (Development Mode)
-
--   **Khởi động server API:**
+1.  **Khởi động server API:**
     ```bash
-    uvicorn api:app --reload
+    uvicorn api:app --host 0.0.0.0 --port 8000 --reload
     ```
-    API sẽ chạy tại địa chỉ `http://127.0.0.1:8000`.
+    
+2.  **Truy cập ứng dụng:**
+    Mở trình duyệt và truy cập `http://localhost:8000`
 
--   **Mở frontend:**
-    Mở tệp `frontend/index.html` trong trình duyệt web của bạn.
+3.  **Kiểm tra API:**
+    - Health check: `http://localhost:8000/health`
+    - API docs: `http://localhost:8000/docs`
 
-#### 2. Chế độ Production (Sử dụng Docker)
+#### Phương pháp 2: Sử dụng Docker
 
 Đây là cách được khuyến nghị để chạy toàn bộ ứng dụng như một dịch vụ độc lập.
 
--   **Build Docker image:**
+1.  **Build Docker image:**
     ```bash
     docker build -t salary-predictor .
     ```
 
--   **Chạy Docker container:**
+2.  **Chạy Docker container:**
     ```bash
     docker run -d -p 8000:8000 --name salary-app salary-predictor
     ```
 
--   **Truy cập ứng dụng:**
-    Mở trình duyệt và truy cập `http://localhost:8000`.
+3.  **Truy cập ứng dụng:**
+    Mở trình duyệt và truy cập `http://localhost:8000`
+
+#### Lưu ý quan trọng cho Windows
+
+Nếu gặp lỗi encoding khi chạy local trên Windows, cần sửa file `api.py` tại dòng serve index:
+
+```python
+# Thay đổi từ:
+with open("frontend/index.html", "r") as f:
+    html_content = f.read()
+
+# Thành:
+with open("frontend/index.html", "r", encoding="utf-8") as f:
+    html_content = f.read()
+```
 
 ## 📁 Cấu Trúc Dự Án
 
