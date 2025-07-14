@@ -65,8 +65,7 @@ Làm theo các hướng dẫn sau để có một bản sao của dự án và c
 
 1.  **Clone repository về máy:**
     ```bash
-    git clone https://github.com/thethien8a/Machine-Learning-Project/tree/main/Linear%20Regression/project_1
-    cd project_1
+    git clone https://github.com/thethien8a/AI-Job-Salary-Prediction
     ```
 
 2.  **Cài đặt các thư viện Python:**
