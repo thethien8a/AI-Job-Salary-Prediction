@@ -113,20 +113,6 @@ Làm theo các hướng dẫn sau để có một bản sao của dự án và c
 3.  **Truy cập ứng dụng:**
     Mở trình duyệt và truy cập `http://localhost:8000`
 
-#### Lưu ý quan trọng cho Windows
-
-Nếu gặp lỗi encoding khi chạy local trên Windows, cần sửa file `api.py` tại dòng serve index:
-
-```python
-# Thay đổi từ:
-with open("frontend/index.html", "r") as f:
-    html_content = f.read()
-
-# Thành:
-with open("frontend/index.html", "r", encoding="utf-8") as f:
-    html_content = f.read()
-```
-
 ## 📁 Cấu Trúc Dự Án
 
 ```
@@ -142,5 +128,6 @@ with open("frontend/index.html", "r", encoding="utf-8") as f:
 │   └── styles.css          # CSS để tạo kiểu dáng
 ├── requirements.txt        # Các thư viện Python cần thiết
 ├── salary_prediction_pipeline.joblib # Mô hình ML đã được huấn luyện và lưu lại
-└── ...
+└── Data_Analyst.ipynb # Phân tích dữ liệu file csv
+└── Dashboard.pbix # Dashboard phân tích
 ```
