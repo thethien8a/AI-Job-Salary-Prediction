@@ -6,6 +6,25 @@
 
 **Website đang hoạt động tại:** [https://machine-learning-project-qy7k.onrender.com/](https://machine-learning-project-qy7k.onrender.com/)
 
+## 📁 Cấu Trúc Dự Án
+
+```
+.
+├── api.py                  # Logic ứng dụng FastAPI
+├── build_pipeline.py       # Script để huấn luyện và lưu pipeline ML
+├── Dockerfile              # Hướng dẫn để build Docker container
+├── evaluation.py           # Các hàm để đánh giá mô hình
+├── feature_engineering.py  # Các transformer tùy chỉnh của scikit-learn
+├── frontend/               # Toàn bộ các tệp frontend
+│   ├── index.html          # Trang HTML chính
+│   ├── script.js           # Logic JavaScript của frontend
+│   └── styles.css          # CSS để tạo kiểu dáng
+├── requirements.txt        # Các thư viện Python cần thiết
+├── salary_prediction_pipeline.joblib # Mô hình ML đã được huấn luyện và lưu lại
+└── Data_Analyst.ipynb # Phân tích dữ liệu file csv
+└── Dashboard.pbix # Dashboard phân tích
+```
+
 ## 🌟 Tính Năng Nổi Bật
 
 -   **Dự đoán Thời gian thực**: Nhận ước tính lương ngay lập tức bằng cách điền vào biểu mẫu.
@@ -112,22 +131,3 @@ Làm theo các hướng dẫn sau để có một bản sao của dự án và c
 
 3.  **Truy cập ứng dụng:**
     Mở trình duyệt và truy cập `http://localhost:8000`
-
-## 📁 Cấu Trúc Dự Án
-
-```
-.
-├── api.py                  # Logic ứng dụng FastAPI
-├── build_pipeline.py       # Script để huấn luyện và lưu pipeline ML
-├── Dockerfile              # Hướng dẫn để build Docker container
-├── evaluation.py           # Các hàm để đánh giá mô hình
-├── feature_engineering.py  # Các transformer tùy chỉnh của scikit-learn
-├── frontend/               # Toàn bộ các tệp frontend
-│   ├── index.html          # Trang HTML chính
-│   ├── script.js           # Logic JavaScript của frontend
-│   └── styles.css          # CSS để tạo kiểu dáng
-├── requirements.txt        # Các thư viện Python cần thiết
-├── salary_prediction_pipeline.joblib # Mô hình ML đã được huấn luyện và lưu lại
-└── Data_Analyst.ipynb # Phân tích dữ liệu file csv
-└── Dashboard.pbix # Dashboard phân tích
-```
