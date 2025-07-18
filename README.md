@@ -1,10 +1,11 @@
-# Dự án Phân tích và Dự đoán Job Salary
+# Dự án Phân tích và Dự đoán AI/Data Job Salary (Global Market)
 
 Đây là một dự án ứng dụng web full-stack có khả năng dự đoán mức lương cho các công việc trong lĩnh vực Trí tuệ Nhân tạo (AI) và Khoa học Dữ liệu dựa trên các thuộc tính khác nhau của công việc. Dự án sử dụng một pipeline Machine Learning được xây dựng bằng Scikit-learn và được phục vụ thông qua một backend API bằng FastAPI.
 
 ## 🚀 Demo Trực Tuyến
 
-**Website đang hoạt động tại:** [https://machine-learning-project-qy7k.onrender.com/](https://machine-learning-project-qy7k.onrender.com/)
+**Website đang hoạt động tại:** [https://machine-learning-project-qy7k.onrender.com/](https://machine-learning-project-qy7k.onrender.com/)  
+**Link dashboard public**:
 
 ## 📁 Cấu Trúc Dự Án
 
