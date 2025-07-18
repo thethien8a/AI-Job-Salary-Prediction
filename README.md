@@ -1,11 +1,19 @@
-# Dự án Phân tích và Dự đoán AI/Data Job Salary (Global Market)
+<img width="1163" height="652" alt="image" src="https://github.com/user-attachments/assets/d18e5bcc-2c30-43b3-b1c2-a42a715b4fd9" /><img width="1157" height="652" alt="image" src="https://github.com/user-attachments/assets/3499696b-d288-413d-8d2a-309ab38593aa" /><img width="1161" height="652" alt="image" src="https://github.com/user-attachments/assets/4a7980a2-bea8-462c-9f89-58278bc64c57" /># Dự án Phân tích và Dự đoán AI/Data Job Salary (Global Market)
 
 Đây là một dự án ứng dụng web full-stack có khả năng dự đoán mức lương cho các công việc trong lĩnh vực Trí tuệ Nhân tạo (AI) và Khoa học Dữ liệu dựa trên các thuộc tính khác nhau của công việc. Dự án sử dụng một pipeline Machine Learning được xây dựng bằng Scikit-learn và được phục vụ thông qua một backend API bằng FastAPI.
 
 ## 🚀 Demo Trực Tuyến
 
 **Website đang hoạt động tại:** [https://machine-learning-project-qy7k.onrender.com/](https://machine-learning-project-qy7k.onrender.com/)  
-**Link dashboard public**:
+
+## 📊 Dashboard Dự Án
+1. **Dashboard 1:**
+<img width="1157" height="652" alt="image" src="https://github.com/user-attachments/assets/30ad2432-2126-4083-86a9-58067cf9c194" />
+
+2. **Dashboard 2:**
+<img width="1163" height="652" alt="image" src="https://github.com/user-attachments/assets/f8bea12c-eb07-48bd-851f-41258e276f9d" />
+
+3. **Dashboard 3:** Still updating ...
 
 ## 📁 Cấu Trúc Dự Án
 
