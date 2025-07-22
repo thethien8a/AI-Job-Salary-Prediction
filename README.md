@@ -71,6 +71,7 @@ graph TD
 -   **Pipeline ML**: Một mô hình `XGBRegressor` được gói trong một `scikit-learn.pipeline.Pipeline`. Pipeline này bao gồm tất cả các bước cần thiết:
     -   **Kỹ thuật Đặc trưng (Feature Engineering)**: Các transformer tùy chỉnh để tạo đặc trưng từ ngày tháng và kỹ năng.
     -   **Tiền xử lý (Preprocessing)**: Điền dữ liệu thiếu (với `SimpleImputer` và `KNNImputer`), mã hóa (với `OneHotEncoder`, `OrdinalEncoder`, và `TargetEncoder`), và chuẩn hóa (`StandardScaler`).
+-   **Dashboard**: Power BI
 
 ## 🛠️ Công Nghệ Sử Dụng
 
@@ -78,6 +79,7 @@ graph TD
 -   **Machine Learning**: Scikit-learn, XGBoost, Pandas, NumPy, Joblib
 -   **Frontend**: HTML5, CSS3 (Flexbox, Grid, Animations), JavaScript (ES6+, Fetch API)
 -   **Triển khai**: Docker, Render.com
+-   **Analyse**: Python, Seaborn, Matplotlib, Pandas, Numpy, Plotly, Jupyter Notebook
 
 ## 🚀 Bắt đầu
 
